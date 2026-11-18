@@ -1,2 +1,2 @@
-# tarea-producto consumidor
-Producto-consumidor
+# tarea-productor consumidor
+Productor-consumidor
