@@ -11,7 +11,7 @@
 #define P(s) sem_wait(s)
 #define V(s) sem_post(s)
 
-// Variables compartidas del buffer circular (según tus apuntes)
+// Variables compartidas del buffer circular
 int buff[BUFFER_SIZE];
 int front = 0;           // Indicador de lectura (en algunos apuntes llamado 'from')
 int rear = 0;            // Indicador de escritura
@@ -21,7 +21,7 @@ sem_t empty;             // Cuenta los espacios vacíos en el buffer
 sem_t full;              // Cuenta los elementos disponibles en el buffer
 sem_t mutex;             // Exclusión mutua para proteger la manipulación del buffer
 
-// Función del Proceso Productor (Basada en tus apuntes)
+// Función del Proceso Productor
 void* productor(void* arg) {
     int id = *((int*) arg);
 
@@ -47,7 +47,7 @@ void* productor(void* arg) {
     pthread_exit(NULL);
 }
 
-// Función del Proceso Consumidor (Basada en tus apuntes)
+// Función del Proceso Consumidor
 void* consumidor(void* arg) {
     int id = *((int*) arg);
 
@@ -77,7 +77,7 @@ int main() {
     pthread_t prod1, prod2, cons1, cons2;
     int id1 = 1, id2 = 2;
 
-    // Inicialización de semáforos (según tus apuntes)
+    // Inicialización de semáforos
     // empty se inicializa con el tamaño total del buffer (espacios libres iniciales)
     sem_init(&empty, 0, BUFFER_SIZE);
     // full se inicializa en 0 porque al inicio no hay elementos
